@@ -13,4 +13,8 @@
   
   .game__content {
     color: #e0e0e0;
+    border: 1px solid #555;
+    padding: 10px;
+    height: 75vh;
+    background-color: #333;
   }
