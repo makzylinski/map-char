@@ -1,6 +1,12 @@
 import { useEffect } from "react";
+import "./Player.css";
 
-export default function Player() {
+interface Props {
+  name: string;
+  color: string;
+}
+
+export default function Player({ name, color }: Props) {
   useEffect(() => {
     window.addEventListener("keydown", onKeyDown);
     function onKeyDown(e: any) {
@@ -11,9 +17,13 @@ export default function Player() {
 
   return (
     <div className="character">
+      <div className="name">{name}</div>
       <div className="head"></div>
       <div className="torso"></div>
-      <div className="legs"></div>
+      <div className="legs">
+        <div className="leg"></div>
+        <div className="leg"></div>
+      </div>
     </div>
   );
 }

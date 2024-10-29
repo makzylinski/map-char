@@ -11,7 +11,7 @@ export default function Game({ charName, color }: Props) {
     <div className="game">
       <h2>Game On!</h2>
       <div className="game__content">
-        <Player />
+        <Player name={charName} color={color} />
       </div>
     </div>
   );
