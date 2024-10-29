@@ -1,16 +1,23 @@
 import { useState } from "react";
 import "./Form.css";
 
-export default function Form() {
+interface Props {
+  onNameChange: (name: string) => void;
+  onColorChange: (color: string) => void;
+}
+
+export default function Form({ onNameChange, onColorChange }: Props) {
   const [enteredName, setEnteredName] = useState("");
   const [enteredColor, setEnteredColor] = useState("");
 
   function handleNameChange(event: any) {
     setEnteredName(event?.target.value);
+    onNameChange(event?.target.value);
   }
 
   function handleColorChange(event: any) {
     setEnteredColor(event?.target.value);
+    onColorChange(event?.target.value);
   }
 
   return (
