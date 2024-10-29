@@ -1,0 +1,16 @@
+.game {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    padding: 20px;
+    border-radius: 8px;
+    width: 70%;
+  }
+  
+  .game h2 {
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .game__content {
+    color: #e0e0e0;
+  }
