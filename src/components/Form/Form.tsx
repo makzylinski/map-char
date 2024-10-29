@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Form.css";
 
 interface Props {
@@ -9,6 +9,16 @@ interface Props {
 export default function Form({ onNameChange, onColorChange }: Props) {
   const [enteredName, setEnteredName] = useState("");
   const [enteredColor, setEnteredColor] = useState("");
+
+  useEffect(() => {
+    fetch("https://www.thecolorapi.com/")
+      .then((response) => {
+        return response.json;
+      })
+      .then((resData) => {
+        console.log(resData);
+      });
+  });
 
   function handleNameChange(event: any) {
     setEnteredName(event?.target.value);
@@ -49,4 +59,7 @@ export default function Form({ onNameChange, onColorChange }: Props) {
       </div>
     </form>
   );
+}
+function useEfect() {
+  throw new Error("Function not implemented.");
 }
