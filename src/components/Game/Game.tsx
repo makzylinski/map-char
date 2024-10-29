@@ -1,5 +1,5 @@
+import Player from "../Player/Player";
 import "./Game.css";
-import Player from "./Player";
 
 interface Props {
   charName: string;

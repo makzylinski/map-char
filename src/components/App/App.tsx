@@ -1,7 +1,7 @@
 import { useState } from "react";
+import Form from "../Form/Form";
+import Game from "../Game/Game";
 import "./App.css";
-import Form from "./Form";
-import Game from "./Game";
 
 function App() {
   const [enteredName, setEnteredName] = useState("");
