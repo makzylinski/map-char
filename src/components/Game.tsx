@@ -1,3 +1,5 @@
+import "./Game.css";
+
 interface Props {
   charName: string;
   color: string;
@@ -5,11 +7,9 @@ interface Props {
 
 export default function Game({ charName, color }: Props) {
   return (
-    <>
-      <p>Game component works!</p>
-      <p>
-        {charName} | {color}
-      </p>
-    </>
+    <div className="game">
+      <h2>Game On!</h2>
+      <div className="game__content">content goes here auu</div>
+    </div>
   );
 }
