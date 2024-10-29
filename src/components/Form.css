@@ -1,0 +1,35 @@
+.form {
+  max-width: 400px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.form h2 {
+  text-align: center;
+  color: #333; 
+  margin-bottom: 20px;
+}
+
+.form__row {
+  margin-bottom: 15px;
+}
+
+.form__row label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+
+.form__row input,
+.form__row select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
