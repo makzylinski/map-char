@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Player.css";
 
 interface Props {
@@ -7,16 +7,37 @@ interface Props {
 }
 
 export default function Player({ name, color }: Props) {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
   useEffect(() => {
     window.addEventListener("keydown", onKeyDown);
     function onKeyDown(e: any) {
-      console.log(e);
+      console.log(e.key);
+      switch (e.key) {
+        case "ArrowUp":
+          setPosition((prev) => ({ ...prev, y: prev.y - 10 }));
+          break;
+        case "ArrowDown":
+          setPosition((prev) => ({ ...prev, y: prev.y + 10 }));
+          break;
+        case "ArrowLeft":
+          setPosition((prev) => ({ ...prev, x: prev.x - 10 }));
+          break;
+        case "ArrowRight":
+          setPosition((prev) => ({ ...prev, x: prev.x + 10 }));
+          break;
+        default:
+          break;
+      }
     }
     return () => window.removeEventListener("keydown", onKeyDown);
   });
 
   return (
-    <div className="character">
+    <div
+      className="character"
+      style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
+    >
       <div className="name" style={{ color: color }}>
         {name}
       </div>
