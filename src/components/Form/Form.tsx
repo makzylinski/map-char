@@ -9,16 +9,32 @@ interface Props {
 export default function Form({ onNameChange, onColorChange }: Props) {
   const [enteredName, setEnteredName] = useState("");
   const [enteredColor, setEnteredColor] = useState("");
+  const [colorData, setColorData] = useState(null);
 
   useEffect(() => {
-    fetch("https://www.thecolorapi.com/")
-      .then((response) => {
-        return response.json;
-      })
-      .then((resData) => {
-        console.log(resData);
-      });
-  }, []);
+    if (!enteredColor) return;
+
+    const debounceFetch = setTimeout(() => {
+      const fetchColorData = async () => {
+        try {
+          const response = await fetch(
+            `https://www.thecolorapi.com/id?hex=${enteredColor.slice(1)}`
+          );
+          if (!response.ok) {
+            throw new Error("Response was not ok.");
+          }
+          const resData = await response.json();
+          setColorData(resData.name.value);
+        } catch (error) {
+          console.error("Error fetching color data:", error);
+        }
+      };
+
+      fetchColorData();
+    }, 500);
+
+    return () => clearTimeout(debounceFetch);
+  }, [enteredColor]);
 
   function handleNameChange(event: any) {
     setEnteredName(event?.target.value);
@@ -53,12 +69,9 @@ export default function Form({ onNameChange, onColorChange }: Props) {
             onChange={handleColorChange}
             value={enteredColor}
           />
-          <p className="form__row--label">Color123</p>
+          <p className="form__row--label">{colorData}</p>
         </div>
       </div>
     </form>
   );
-}
-function useEfect() {
-  throw new Error("Function not implemented.");
 }
