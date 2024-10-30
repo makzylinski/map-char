@@ -13,8 +13,21 @@ export default function Player({ name, color }: Props) {
     window.addEventListener("keydown", onKeyDown);
     function onKeyDown(e: any) {
       console.log(e.key);
-      if (e.key === "ArrowUp") {
-        setPosition((prev) => ({ ...prev, y: prev.y - 10 }));
+      switch (e.key) {
+        case "ArrowUp":
+          setPosition((prev) => ({ ...prev, y: prev.y - 10 }));
+          break;
+        case "ArrowDown":
+          setPosition((prev) => ({ ...prev, y: prev.y + 10 }));
+          break;
+        case "ArrowLeft":
+          setPosition((prev) => ({ ...prev, x: prev.x - 10 }));
+          break;
+        case "ArrowRight":
+          setPosition((prev) => ({ ...prev, x: prev.x + 10 }));
+          break;
+        default:
+          break;
       }
     }
     return () => window.removeEventListener("keydown", onKeyDown);
