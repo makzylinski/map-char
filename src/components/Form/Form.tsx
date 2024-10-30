@@ -18,7 +18,7 @@ export default function Form({ onNameChange, onColorChange }: Props) {
       .then((resData) => {
         console.log(resData);
       });
-  });
+  }, []);
 
   function handleNameChange(event: any) {
     setEnteredName(event?.target.value);
@@ -46,16 +46,15 @@ export default function Form({ onNameChange, onColorChange }: Props) {
 
       <div className="form__row">
         <label htmlFor="color">Color</label>
-        <select
-          name="color"
-          id="color"
-          onChange={handleColorChange}
-          value={enteredColor}
-        >
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-          <option value="blue">Blue</option>
-        </select>
+        <div className="form__row--picker">
+          <input
+            type="color"
+            id="color"
+            onChange={handleColorChange}
+            value={enteredColor}
+          />
+          <p className="form__row--label">Color123</p>
+        </div>
       </div>
     </form>
   );

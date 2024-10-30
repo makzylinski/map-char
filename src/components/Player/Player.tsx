@@ -17,7 +17,9 @@ export default function Player({ name, color }: Props) {
 
   return (
     <div className="character">
-      <div className="name">{name}</div>
+      <div className="name">
+        {name} | {color}
+      </div>
       <div className="head"></div>
       <div className="torso"></div>
       <div className="legs">
