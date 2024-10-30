@@ -17,12 +17,14 @@ export default function Player({ name, color }: Props) {
 
   return (
     <div className="character">
-      <div className="name">{name}</div>
-      <div className="head"></div>
-      <div className="torso"></div>
+      <div className="name" style={{ color: color }}>
+        {name}
+      </div>
+      <div className="head" style={{ backgroundColor: color }}></div>
+      <div className="torso" style={{ backgroundColor: color }}></div>
       <div className="legs">
-        <div className="leg"></div>
-        <div className="leg"></div>
+        <div className="leg" style={{ backgroundColor: color }}></div>
+        <div className="leg" style={{ backgroundColor: color }}></div>
       </div>
     </div>
   );
