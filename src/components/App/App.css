@@ -1,12 +1,12 @@
 .app {
-    box-sizing: border-box;
-    max-height: 100vh;
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-  }
+  box-sizing: border-box;
+  max-height: 100vh;
+  background: linear-gradient(145deg, #1f2937, #2d3748);
+  color: #e0e0e0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+}

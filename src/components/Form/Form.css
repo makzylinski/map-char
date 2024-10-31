@@ -1,16 +1,19 @@
 .form {
-  background-color: #2a2a2a;
-  border: 1px solid #444;
+  background: linear-gradient(145deg, #374151, #4a5568);
+  border: 1px solid #4a5568;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   margin-right: 20px;
   min-width: 300px;
   width: 20%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .form h2 {
   text-align: center;
-  color: #ffffff;
+  color: #fbbf24;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .form__row {
@@ -21,18 +24,19 @@
 
 .form__row label {
   display: block;
-  color: #e0e0e0;
+  color: #a0aec0;
   padding-left: 10px;
+  font-weight: 600;
 }
 
 input {
   box-sizing: border-box;
-  background-color: #333;
-  color: #fff;
-  border: 1px solid #555;
+  background-color: #2d3748;
+  color: #f0f0f0;
+  border: 1px solid #4a5568;
   padding: 10px;
-  border-radius: 4px;
-
+  border-radius: 6px;
+  transition: all 0.3s;
 }
 
 input[type='color'] {
@@ -40,8 +44,9 @@ input[type='color'] {
 }
 
 input:focus {
-  border-color: #888;
+  border-color: #fbbf24;
   outline: none;
+  background-color: #374151;
 }
 
 .form__row--picker {
