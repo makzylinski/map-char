@@ -14,25 +14,21 @@ export default function Form({ onNameChange, onColorChange }: Props) {
   useEffect(() => {
     if (!enteredColor) return;
 
-    const debounceFetch = setTimeout(() => {
-      const fetchColorData = async () => {
-        try {
-          const response = await fetch(
-            `https://www.thecolorapi.com/id?hex=${enteredColor.slice(1)}`
-          );
-          if (!response.ok) {
-            throw new Error("Response was not ok.");
-          }
-          const resData = await response.json();
-          setColorData(resData.name.value);
-        } catch (error) {
-          console.error("Error fetching color data:", error);
-        }
-      };
+    const fetchColorData = async () => {
+      try {
+        const response = await fetch(
+          `https://www.thecolorapi.com/id?hex=${enteredColor.slice(1)}`
+        );
+        if (!response.ok) throw new Error("Response was not ok.");
 
-      fetchColorData();
-    }, 500);
+        const resData = await response.json();
+        setColorData(resData.name.value);
+      } catch (error) {
+        console.error("Error fetching color data:", error);
+      }
+    };
 
+    const debounceFetch = setTimeout(fetchColorData, 500);
     return () => clearTimeout(debounceFetch);
   }, [enteredColor]);
 
