@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Dimensions } from "../Game/Game";
+import { useCallback, useEffect, useState } from "react";
+import { Dimensions } from "../../dimensions";
 import "./Player.css";
 
 interface Props {
@@ -8,12 +8,16 @@ interface Props {
   gameDimensions: Dimensions;
 }
 
-export default function Player({ name, color, gameDimensions }: Props) {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+interface Position {
+  x: number;
+  y: number;
+}
 
-  useEffect(() => {
-    window.addEventListener("keydown", onKeyDown);
-    function onKeyDown(e: KeyboardEvent) {
+export default function Player({ name, color, gameDimensions }: Props) {
+  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
+
+  const onKeyDown = useCallback(
+    (e: KeyboardEvent) => {
       setPosition((prev) => {
         const newPosition = { ...prev };
         switch (e.key) {
@@ -21,7 +25,7 @@ export default function Player({ name, color, gameDimensions }: Props) {
             newPosition.y = Math.max(0, prev.y - 10);
             break;
           case "ArrowDown":
-            newPosition.y = Math.min(gameDimensions.height - 60, prev.y + 10);
+            newPosition.y = Math.min(gameDimensions.height - 70, prev.y + 10);
             break;
           case "ArrowLeft":
             newPosition.x = Math.max(0, prev.x - 10);
@@ -29,14 +33,17 @@ export default function Player({ name, color, gameDimensions }: Props) {
           case "ArrowRight":
             newPosition.x = Math.min(gameDimensions.width - 50, prev.x + 10);
             break;
-          default:
-            break;
         }
         return newPosition;
       });
-    }
+    },
+    [gameDimensions]
+  );
+
+  useEffect(() => {
+    window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [gameDimensions]);
+  }, [onKeyDown]);
 
   return (
     <div
