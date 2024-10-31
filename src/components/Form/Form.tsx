@@ -42,8 +42,12 @@ export default function Form({ onNameChange, onColorChange }: Props) {
     onColorChange(event?.target.value);
   }
 
+  function submitHandler(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+  }
+
   return (
-    <form className="form">
+    <form className="form" onSubmit={submitHandler}>
       <h2>Player Form</h2>
 
       <div className="form__row">
@@ -53,6 +57,7 @@ export default function Form({ onNameChange, onColorChange }: Props) {
           type="text"
           onChange={handleNameChange}
           value={enteredName}
+          maxLength={15}
         />
       </div>
 
