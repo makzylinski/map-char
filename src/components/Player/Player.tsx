@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Dimensions } from "../Game/Game";
+import { Dimensions } from "../../dimensions";
 import "./Player.css";
 
 interface Props {
@@ -8,8 +8,13 @@ interface Props {
   gameDimensions: Dimensions;
 }
 
+interface Position {
+  x: number;
+  y: number;
+}
+
 export default function Player({ name, color, gameDimensions }: Props) {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState<Position>({ x: 0, y: 0 });
 
   useEffect(() => {
     window.addEventListener("keydown", onKeyDown);
@@ -21,7 +26,7 @@ export default function Player({ name, color, gameDimensions }: Props) {
             newPosition.y = Math.max(0, prev.y - 10);
             break;
           case "ArrowDown":
-            newPosition.y = Math.min(gameDimensions.height - 60, prev.y + 10);
+            newPosition.y = Math.min(gameDimensions.height - 70, prev.y + 10);
             break;
           case "ArrowLeft":
             newPosition.x = Math.max(0, prev.x - 10);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Form.css";
 
 interface Props {
@@ -7,9 +7,9 @@ interface Props {
 }
 
 export default function Form({ onNameChange, onColorChange }: Props) {
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredColor, setEnteredColor] = useState("");
-  const [colorData, setColorData] = useState(null);
+  const [enteredName, setEnteredName] = useState<string>("");
+  const [enteredColor, setEnteredColor] = useState<string>("");
+  const [colorData, setColorData] = useState<string>("");
 
   useEffect(() => {
     if (!enteredColor) return;
@@ -36,12 +36,12 @@ export default function Form({ onNameChange, onColorChange }: Props) {
     return () => clearTimeout(debounceFetch);
   }, [enteredColor]);
 
-  function handleNameChange(event: any) {
+  function handleNameChange(event: React.ChangeEvent<HTMLInputElement>) {
     setEnteredName(event?.target.value);
     onNameChange(event?.target.value);
   }
 
-  function handleColorChange(event: any) {
+  function handleColorChange(event: React.ChangeEvent<HTMLInputElement>) {
     setEnteredColor(event?.target.value);
     onColorChange(event?.target.value);
   }

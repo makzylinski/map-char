@@ -4,8 +4,8 @@ import Game from "../Game/Game";
 import "./App.css";
 
 function App() {
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredColor, setEnteredColor] = useState("");
+  const [enteredName, setEnteredName] = useState<string>("");
+  const [enteredColor, setEnteredColor] = useState<string>("");
   return (
     <div className="app">
       <Form onNameChange={setEnteredName} onColorChange={setEnteredColor} />

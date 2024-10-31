@@ -1,15 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { Dimensions } from "../../dimensions";
 import Player from "../Player/Player";
 import "./Game.css";
 
 interface Props {
   charName: string;
   color: string;
-}
-
-export interface Dimensions {
-  width: number;
-  height: number;
 }
 
 export default function Game({ charName, color }: Props) {
