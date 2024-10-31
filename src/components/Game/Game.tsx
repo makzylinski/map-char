@@ -23,8 +23,6 @@ export default function Game({ charName, color }: Props) {
     if (gameRef.current) {
       const { offsetWidth, offsetHeight } = gameRef.current;
       setDimensions({ width: offsetWidth, height: offsetHeight });
-
-      console.log({ width: offsetWidth, height: offsetHeight });
     }
   };
 
@@ -40,7 +38,7 @@ export default function Game({ charName, color }: Props) {
 
   return (
     <div className="game">
-      <h2>Game dupa!</h2>
+      <h2>Game On!</h2>
       <div className="game__content" ref={gameRef}>
         <Player name={charName} color={color} gameDimensions={dimensions} />
       </div>

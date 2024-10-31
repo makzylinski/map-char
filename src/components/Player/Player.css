@@ -2,35 +2,41 @@
     position: absolute;
     height: 40px;
     width: 20px;
-}
-.name {
+  }
+  
+  .name {
     font-weight: 700;
-}
-.head {
+    color: #e0e0e0;
+    font-size: 1.1rem;
+  }
+  
+  .head {
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: #777;
-}
-
-.torso {
+    background-color: #feb2b2;
+  }
+  
+  .torso {
     height: 20px;
     width: 10px;
-    background-color: #555;
+    background-color: #68d391;
     margin: 0 auto; 
-}
-
-.legs {
+    border-radius: 4px;
+  }
+  
+  .legs {
     height: 10px;
     width: 20px;
-    background-color: #333; 
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-}
-
-.leg {
+  }
+  
+  .leg {
     height: 10px;
     width: 5px;
-    background-color: #444;
-}
+    background-color: #805ad5;
+    border-radius: 2px;
+  }
+  
