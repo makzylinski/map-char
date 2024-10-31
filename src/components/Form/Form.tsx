@@ -8,8 +8,8 @@ interface Props {
 
 export default function Form({ onNameChange, onColorChange }: Props) {
   const [enteredName, setEnteredName] = useState<string>("");
-  const [enteredColor, setEnteredColor] = useState<string>("");
-  const [colorData, setColorData] = useState<string>("");
+  const [enteredColor, setEnteredColor] = useState<string>("#000000");
+  const [colorData, setColorData] = useState<string>("Black");
 
   useEffect(() => {
     if (!enteredColor) return;
